@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 100">
+  <!-- Circular background - Golden/Amber like Florida -->
+  <circle cx="50" cy="50" r="46" fill="#F4B942"/>
+  
+  <!-- Teleprompter base/stand -->
+  <rect x="30" y="80" width="40" height="6" rx="1" fill="#1a1a1a"/>
+  <rect x="38" y="75" width="24" height="7" fill="#1a1a1a"/>
+  
+  <!-- Teleprompter case bottom -->
+  <path d="M18 75 L82 75 L82 40 L18 40 Z" fill="#2a2a2a"/>
+  
+  <!-- Teleprompter lid (open, tilted back) -->
+  <path d="M18 40 L82 40 L75 15 L25 15 Z" fill="#1a1a1a"/>
+  
+  <!-- Monitor screen area -->
+  <rect x="23" y="43" width="54" height="30" rx="1" fill="#5a5a5a"/>
+  
+  <!-- Pennsylvania state outline (rectangular shape) -->
+  <path d="M28 48 L72 48 L72 50 L70 52 L68 68 L32 68 L30 52 L28 50 Z" 
+        fill="#707070"/>
+  
+  <!-- Teleprompter text lines overlaid on state -->
+  <line x1="32" y1="52" x2="68" y2="52" stroke="#d0d0d0" stroke-width="2"/>
+  <line x1="32" y1="57" x2="66" y2="57" stroke="#d0d0d0" stroke-width="2"/>
+  <line x1="32" y1="62" x2="60" y2="62" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Text: Pennsylvania Teleprompter - Clean modern font -->
+  <text x="115" y="48" font-family="Trebuchet MS, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#1a1a1a">Pennsylvania Teleprompter</text>
+  
+  <!-- Tagline - stretched to match -->
+  <text x="115" y="72" font-family="Trebuchet MS, Helvetica, sans-serif" font-size="16" font-style="italic" letter-spacing="1.8" fill="#4a4a4a">Powering Outstanding Performances</text>
+</svg>
