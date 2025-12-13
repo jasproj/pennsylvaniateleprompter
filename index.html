@@ -16,22 +16,23 @@
         
         :root {
             --gold: #F5B84C;
-            --gold-light: #F5C86C;
-            --gold-dark: #C4942C;
-            --gold-deep: #A47A1C;
-            --bg-void: #0A0909;
-            --bg-deep: #0F0D0D;
-            --bg-elevated: #1A1616;
-            --bg-card: #211C1C;
-            --text-bright: #FAF8F6;
-            --text-primary: #E8E2DE;
-            --text-secondary: #A89C96;
-            --text-muted: #6B5F5A;
-            --border: rgba(245, 184, 76, 0.1);
-            --border-light: rgba(245, 184, 76, 0.2);
-            --spot-core: rgba(245, 210, 150, 0.28);
-            --spot-mid: rgba(196, 148, 44, 0.2);
-            --spot-outer: rgba(220, 180, 100, 0.1);
+            --gold-light: #FFD77A;
+            --gold-dark: #D4A43C;
+            --gold-deep: #B8922C;
+            --bg-void: #0D0D0F;
+            --bg-deep: #121216;
+            --bg-elevated: #1A1A1F;
+            --bg-card: #222228;
+            --bg-accent: #1E3A5F;
+            --text-bright: #FFFFFF;
+            --text-primary: #E8EAED;
+            --text-secondary: #9AA0A6;
+            --text-muted: #5F6368;
+            --border: rgba(245, 184, 76, 0.15);
+            --border-light: rgba(245, 184, 76, 0.25);
+            --spot-core: rgba(245, 210, 150, 0.35);
+            --spot-mid: rgba(245, 184, 76, 0.25);
+            --spot-outer: rgba(245, 200, 120, 0.15);
             --white: #ffffff;
             --black: #0a0a0a;
             --font-display: Arial, 'Helvetica Neue', sans-serif;
@@ -68,7 +69,7 @@
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(196, 148, 44, 0.3);
+            border-bottom: 1px solid rgba(245, 184, 76, 0.3);
         }
 
         .nav-logo {
@@ -260,7 +261,7 @@
         .spotlight-1 {
             left: 15%;
             border-width: 0 80px 550px 80px;
-            border-color: transparent transparent rgba(196, 148, 44, 0.25) transparent;
+            border-color: transparent transparent rgba(245, 184, 76, 0.25) transparent;
         }
 
         .spotlight-2 {
@@ -274,7 +275,7 @@
         .spotlight-3 {
             right: 15%;
             border-width: 0 80px 550px 80px;
-            border-color: transparent transparent rgba(196, 148, 44, 0.25) transparent;
+            border-color: transparent transparent rgba(245, 184, 76, 0.25) transparent;
             animation-delay: 2s;
         }
 
@@ -291,8 +292,8 @@
             left: 30px;
             width: 120px;
             height: 120px;
-            border-left: 3px solid rgba(196, 148, 44, 0.3);
-            border-top: 3px solid rgba(196, 148, 44, 0.3);
+            border-left: 3px solid rgba(245, 184, 76, 0.3);
+            border-top: 3px solid rgba(245, 184, 76, 0.3);
             z-index: 4;
         }
 
@@ -303,8 +304,8 @@
             right: 30px;
             width: 120px;
             height: 120px;
-            border-right: 3px solid rgba(196, 148, 44, 0.3);
-            border-top: 3px solid rgba(196, 148, 44, 0.3);
+            border-right: 3px solid rgba(245, 184, 76, 0.3);
+            border-top: 3px solid rgba(245, 184, 76, 0.3);
             z-index: 4;
         }
 
@@ -383,7 +384,7 @@
         .hero-cta:hover {
             background: var(--gold);
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(196, 148, 44, 0.3);
+            box-shadow: 0 10px 40px rgba(245, 184, 76, 0.3);
         }
 
         .hero-cta svg {
@@ -405,9 +406,9 @@
             justify-content: center;
             gap: 4rem;
             padding: 3rem 2rem;
-            background: rgba(196, 148, 44, 0.1);
-            border-top: 1px solid rgba(196, 148, 44, 0.2);
-            border-bottom: 1px solid rgba(196, 148, 44, 0.2);
+            background: rgba(245, 184, 76, 0.1);
+            border-top: 1px solid rgba(245, 184, 76, 0.2);
+            border-bottom: 1px solid rgba(245, 184, 76, 0.2);
         }
 
         .stat {
@@ -520,8 +521,8 @@
             padding: 4rem 0;
             overflow: hidden;
             background: var(--black);
-            border-top: 1px solid rgba(196, 148, 44, 0.15);
-            border-bottom: 1px solid rgba(196, 148, 44, 0.15);
+            border-top: 1px solid rgba(245, 184, 76, 0.15);
+            border-bottom: 1px solid rgba(245, 184, 76, 0.15);
         }
 
         .clients .section-header {
@@ -576,7 +577,22 @@
 
         /* Testimonials */
         .testimonials {
-            background: linear-gradient(180deg, var(--black) 0%, rgba(0, 29, 74, 0.15) 100%);
+            background: linear-gradient(135deg, #0F1628 0%, #1A2744 50%, #0F1628 100%);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(245, 184, 76, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(245, 184, 76, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .testimonials .section-header {
+            position: relative;
+            z-index: 1;
         }
 
         .testimonials-grid {
@@ -585,13 +601,16 @@
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(196, 148, 44, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 184, 76, 0.25);
             padding: 2.5rem;
             position: relative;
+            backdrop-filter: blur(10px);
         }
 
         .testimonial::before {
@@ -705,8 +724,8 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(ellipse at 30% 50%, rgba(196, 148, 44, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 50%, rgba(196, 148, 44, 0.06) 0%, transparent 50%);
+                radial-gradient(ellipse at 30% 50%, rgba(245, 184, 76, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(245, 184, 76, 0.06) 0%, transparent 50%);
             animation: coverageGlow 8s ease-in-out infinite;
         }
 
@@ -786,8 +805,8 @@
 
         .city-tag {
             padding: 0.5rem 1rem;
-            background: rgba(196, 148, 44, 0.15);
-            border: 1px solid rgba(196, 148, 44, 0.3);
+            background: rgba(245, 184, 76, 0.15);
+            border: 1px solid rgba(245, 184, 76, 0.3);
             font-size: 0.8rem;
             color: var(--text-primary);
             letter-spacing: 0.05em;
@@ -819,8 +838,8 @@
             position: absolute;
             inset: 0;
             background: url('img-stage.jpg') center/cover no-repeat;
-            opacity: 0.25;
-            filter: brightness(0.6);
+            opacity: 0.8;
+            filter: brightness(0.5);
         }
 
         .cta::after {
@@ -911,7 +930,7 @@
             width: 100%;
             padding: 1rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(196, 148, 44, 0.3);
+            border: 1px solid rgba(245, 184, 76, 0.3);
             color: var(--white);
             font-family: var(--font-body);
             font-size: 1rem;
@@ -927,7 +946,7 @@
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--gold);
-            background: rgba(196, 148, 44, 0.1);
+            background: rgba(245, 184, 76, 0.1);
         }
 
         .contact-form textarea {
@@ -950,7 +969,7 @@
         /* Footer */
         .footer {
             background: var(--black);
-            border-top: 1px solid rgba(196, 148, 44, 0.2);
+            border-top: 1px solid rgba(245, 184, 76, 0.2);
             padding: 4rem 2rem 2rem;
         }
 
@@ -1096,6 +1115,7 @@
         </a>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
+            <li><a href="#tool">Tools</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1109,6 +1129,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="#services">Services</a>
+        <a href="#tool">Tools</a>
         <a href="/about.html">About</a>
         <a href="#contact">Contact</a>
     </div>
@@ -1120,16 +1141,16 @@
             <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgba(196, 148, 44, 0.4)"/>
-                        <stop offset="100%" style="stop-color:rgba(196, 148, 44, 0.1)"/>
+                        <stop offset="0%" style="stop-color:rgba(245, 184, 76, 0.4)"/>
+                        <stop offset="100%" style="stop-color:rgba(245, 184, 76, 0.1)"/>
                     </linearGradient>
                     <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgba(196, 148, 44, 0.15)"/>
+                        <stop offset="0%" style="stop-color:rgba(245, 184, 76, 0.15)"/>
                         <stop offset="100%" style="stop-color:transparent"/>
                     </linearGradient>
                     <linearGradient id="skylineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgba(196, 148, 44, 0.25)"/>
-                        <stop offset="100%" style="stop-color:rgba(196, 148, 44, 0.05)"/>
+                        <stop offset="0%" style="stop-color:rgba(245, 184, 76, 0.25)"/>
+                        <stop offset="100%" style="stop-color:rgba(245, 184, 76, 0.05)"/>
                     </linearGradient>
                 </defs>
                 
@@ -1356,8 +1377,8 @@
             <svg viewBox="0 0 500 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="paFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgba(196, 148, 44, 0.15)"/>
-                        <stop offset="100%" style="stop-color:rgba(196, 148, 44, 0.05)"/>
+                        <stop offset="0%" style="stop-color:rgba(245, 184, 76, 0.15)"/>
+                        <stop offset="100%" style="stop-color:rgba(245, 184, 76, 0.05)"/>
                     </linearGradient>
                     <filter id="glow">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -1371,7 +1392,7 @@
                 <!-- PA State Shape (accurate outline) -->
                 <path class="pa-shape" d="M30 60 L450 60 L470 70 L470 250 L50 250 L30 240 L30 60 Z" 
                       fill="url(#paFill)" 
-                      stroke="rgba(196, 148, 44, 0.3)" 
+                      stroke="rgba(245, 184, 76, 0.3)" 
                       stroke-width="2"/>
                 
                 <!-- Animated pulse rings from cities -->
@@ -1397,11 +1418,11 @@
                 </line>
                 
                 <!-- City dots -->
-                <circle cx="400" cy="160" r="6" fill="#C4942C" filter="url(#glow)"/>
-                <circle cx="100" cy="140" r="6" fill="#C4942C" filter="url(#glow)"/>
-                <circle cx="250" cy="155" r="5" fill="#C4942C" opacity="0.8"/>
-                <circle cx="350" cy="120" r="4" fill="#C4942C" opacity="0.6"/>
-                <circle cx="80" cy="90" r="4" fill="#C4942C" opacity="0.6"/>
+                <circle cx="400" cy="160" r="6" fill="#F5B84C" filter="url(#glow)"/>
+                <circle cx="100" cy="140" r="6" fill="#F5B84C" filter="url(#glow)"/>
+                <circle cx="250" cy="155" r="5" fill="#F5B84C" opacity="0.8"/>
+                <circle cx="350" cy="120" r="4" fill="#F5B84C" opacity="0.6"/>
+                <circle cx="80" cy="90" r="4" fill="#F5B84C" opacity="0.6"/>
             </svg>
         </div>
         
@@ -1430,27 +1451,27 @@
                     <path d="M20 50 L380 50 L380 60 L370 70 L360 200 L40 200 L30 70 L20 60 Z" 
                           stroke="currentColor" 
                           stroke-width="2" 
-                          fill="rgba(196, 148, 44, 0.1)"/>
+                          fill="rgba(245, 184, 76, 0.1)"/>
                     <!-- City markers -->
-                    <circle cx="340" cy="130" r="8" fill="#C4942C" opacity="0.8">
+                    <circle cx="340" cy="130" r="8" fill="#F5B84C" opacity="0.8">
                         <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
                     </circle>
                     <text x="340" y="155" text-anchor="middle" fill="#adb5bd" font-size="11">Philadelphia</text>
                     
-                    <circle cx="80" cy="110" r="8" fill="#C4942C" opacity="0.8">
+                    <circle cx="80" cy="110" r="8" fill="#F5B84C" opacity="0.8">
                         <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite" begin="0.5s"/>
                     </circle>
                     <text x="80" y="135" text-anchor="middle" fill="#adb5bd" font-size="11">Pittsburgh</text>
                     
-                    <circle cx="220" cy="120" r="6" fill="#C4942C" opacity="0.6">
+                    <circle cx="220" cy="120" r="6" fill="#F5B84C" opacity="0.6">
                         <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" begin="1s"/>
                     </circle>
                     <text x="220" y="145" text-anchor="middle" fill="#adb5bd" font-size="10">Harrisburg</text>
                     
-                    <circle cx="300" cy="90" r="5" fill="#C4942C" opacity="0.5"/>
+                    <circle cx="300" cy="90" r="5" fill="#F5B84C" opacity="0.5"/>
                     <text x="300" y="80" text-anchor="middle" fill="#6c757d" font-size="9">Allentown</text>
                     
-                    <circle cx="60" cy="65" r="5" fill="#C4942C" opacity="0.5"/>
+                    <circle cx="60" cy="65" r="5" fill="#F5B84C" opacity="0.5"/>
                     <text x="60" y="55" text-anchor="middle" fill="#6c757d" font-size="9">Erie</text>
                 </svg>
             </div>
