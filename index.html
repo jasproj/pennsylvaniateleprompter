@@ -15,24 +15,27 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
         :root {
-            --navy: #002D72;
-            --navy-light: #003d99;
-            --navy-dark: #001d4a;
-            --gold: #B8860B;
-            --gold-light: #DAA520;
+            --gold: #F5B84C;
+            --gold-light: #F5C86C;
+            --gold-dark: #C4942C;
+            --gold-deep: #A47A1C;
+            --bg-void: #0A0909;
+            --bg-deep: #0F0D0D;
+            --bg-elevated: #1A1616;
+            --bg-card: #211C1C;
+            --text-bright: #FAF8F6;
+            --text-primary: #E8E2DE;
+            --text-secondary: #A89C96;
+            --text-muted: #6B5F5A;
+            --border: rgba(245, 184, 76, 0.1);
+            --border-light: rgba(245, 184, 76, 0.2);
+            --spot-core: rgba(245, 210, 150, 0.28);
+            --spot-mid: rgba(196, 148, 44, 0.2);
+            --spot-outer: rgba(220, 180, 100, 0.1);
             --white: #ffffff;
-            --gray-100: #f8f9fa;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-400: #ced4da;
-            --gray-500: #adb5bd;
-            --gray-600: #6c757d;
-            --gray-700: #495057;
-            --gray-800: #343a40;
-            --gray-900: #212529;
             --black: #0a0a0a;
-            --font-display: 'Georgia', 'Times New Roman', serif;
-            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --font-display: Arial, 'Helvetica Neue', sans-serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -40,8 +43,8 @@
         
         body {
             font-family: var(--font-body);
-            background: var(--black);
-            color: var(--gray-200);
+            background: var(--bg-void);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -71,29 +74,46 @@
         .nav-logo {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
             text-decoration: none;
             color: var(--white);
         }
 
-        .nav-logo svg {
-            height: 55px;
-            width: auto;
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--black);
         }
 
         .nav-logo-text {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            line-height: 1.2;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
         }
 
-        .nav-logo-text span {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--navy-light);
+        .nav-logo-name {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: bold;
+            letter-spacing: 0;
+            color: var(--white);
+        }
+
+        .nav-logo-tagline {
+            font-size: 0.54rem;
+            color: var(--text-muted);
+            letter-spacing: -0.01em;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
         }
 
         .nav-links {
@@ -103,7 +123,7 @@
         }
 
         .nav-links a {
-            color: var(--gray-300);
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 0.1em;
@@ -119,7 +139,7 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--navy-light);
+            background: var(--gold);
             transition: var(--transition);
         }
 
@@ -237,7 +257,7 @@
             font-size: 0.85rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--navy-light);
+            color: var(--gold);
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeUp 1s ease forwards 0.2s;
@@ -259,12 +279,12 @@
         }
 
         .hero-title .line:nth-child(1) { animation-delay: 0.4s; }
-        .hero-title .line:nth-child(2) { animation-delay: 0.6s; color: var(--gray-400); }
+        .hero-title .line:nth-child(2) { animation-delay: 0.6s; color: var(--text-secondary); }
         .hero-title .line:nth-child(3) { animation-delay: 0.8s; }
 
         .hero-description {
             font-size: 1.1rem;
-            color: var(--gray-400);
+            color: var(--text-secondary);
             max-width: 650px;
             margin: 2rem auto;
             line-height: 1.8;
@@ -277,20 +297,20 @@
             align-items: center;
             gap: 0.75rem;
             padding: 1rem 2.5rem;
-            background: var(--navy);
+            background: var(--gold-dark);
             color: var(--white);
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            border: 1px solid var(--navy-light);
+            border: 1px solid var(--gold);
             transition: var(--transition);
             opacity: 0;
             animation: fadeUp 1s ease forwards 1.2s;
         }
 
         .hero-cta:hover {
-            background: var(--navy-light);
+            background: var(--gold);
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(0, 45, 114, 0.3);
         }
@@ -334,7 +354,7 @@
             font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--gray-500);
+            color: var(--text-muted);
             margin-top: 0.5rem;
         }
 
@@ -353,7 +373,7 @@
             font-size: 0.75rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--navy-light);
+            color: var(--gold);
             margin-bottom: 1rem;
         }
 
@@ -394,7 +414,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--navy-light), transparent);
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
             opacity: 0;
             transition: var(--transition);
         }
@@ -411,7 +431,7 @@
             width: 48px;
             height: 48px;
             margin-bottom: 1.5rem;
-            color: var(--navy-light);
+            color: var(--gold);
         }
 
         .service-title {
@@ -425,12 +445,12 @@
             font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--navy-light);
+            color: var(--gold);
             margin-bottom: 1.5rem;
         }
 
         .service-description {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             line-height: 1.7;
         }
 
@@ -484,7 +504,7 @@
             padding: 0 1.5rem;
             font-family: var(--font-display);
             font-size: 0.9rem;
-            color: var(--gray-500);
+            color: var(--text-muted);
             letter-spacing: 0.05em;
             opacity: 0.6;
             transition: var(--transition);
@@ -520,13 +540,13 @@
             left: 2rem;
             font-family: var(--font-display);
             font-size: 4rem;
-            color: var(--navy);
+            color: var(--gold-dark);
             opacity: 0.5;
             line-height: 1;
         }
 
         .testimonial-text {
-            color: var(--gray-300);
+            color: var(--text-primary);
             font-style: italic;
             line-height: 1.8;
             margin-bottom: 1.5rem;
@@ -541,7 +561,7 @@
 
         .testimonial-role {
             font-size: 0.75rem;
-            color: var(--gray-500);
+            color: var(--text-muted);
             margin-top: 0.25rem;
         }
 
@@ -569,7 +589,7 @@
         }
 
         .coverage-text p {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
@@ -586,7 +606,7 @@
             background: rgba(0, 45, 114, 0.2);
             border: 1px solid rgba(0, 45, 114, 0.3);
             font-size: 0.8rem;
-            color: var(--gray-300);
+            color: var(--text-primary);
             letter-spacing: 0.05em;
         }
 
@@ -599,14 +619,14 @@
             width: 100%;
             max-width: 400px;
             height: auto;
-            color: var(--navy);
+            color: var(--gold-dark);
         }
 
         /* CTA Section */
         .cta {
             padding: 8rem 2rem;
             text-align: center;
-            background: linear-gradient(180deg, var(--black) 0%, var(--navy-dark) 100%);
+            background: linear-gradient(180deg, var(--black) 0%, var(--gold-dark) 100%);
             position: relative;
         }
 
@@ -635,7 +655,7 @@
         }
 
         .cta p {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             margin-bottom: 2.5rem;
             line-height: 1.7;
         }
@@ -661,25 +681,25 @@
         }
 
         .btn-primary {
-            background: var(--navy);
+            background: var(--gold-dark);
             color: var(--white);
-            border-color: var(--navy-light);
+            border-color: var(--gold);
         }
 
         .btn-primary:hover {
-            background: var(--navy-light);
+            background: var(--gold);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border-color: var(--gray-600);
+            border-color: var(--text-muted);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.05);
-            border-color: var(--gray-400);
+            border-color: var(--text-secondary);
         }
 
         /* Contact Form */
@@ -710,13 +730,13 @@
 
         .contact-form input::placeholder,
         .contact-form textarea::placeholder {
-            color: var(--gray-500);
+            color: var(--text-muted);
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: var(--navy-light);
+            border-color: var(--gold);
             background: rgba(0, 45, 114, 0.1);
         }
 
@@ -753,7 +773,7 @@
         }
 
         .footer-brand p {
-            color: var(--gray-500);
+            color: var(--text-muted);
             font-size: 0.9rem;
             line-height: 1.7;
             margin-top: 1rem;
@@ -764,7 +784,7 @@
             font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--gray-400);
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
 
@@ -777,7 +797,7 @@
         }
 
         .footer-column a {
-            color: var(--gray-500);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
@@ -785,61 +805,36 @@
 
         .footer-column a:hover { color: var(--white); }
 
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-contact-item svg {
-            width: 16px;
-            height: 16px;
-            color: var(--navy-light);
-        }
-
-        .footer-contact-item a,
-        .footer-contact-item span {
-            color: var(--gray-400);
-            font-size: 0.9rem;
-        }
-
         .footer-bottom {
             max-width: 1200px;
             margin: 3rem auto 0;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
         }
 
         .footer-bottom p {
-            color: var(--gray-600);
+            color: var(--text-muted);
             font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom p:last-child {
+            margin-bottom: 0;
         }
 
         .footer-bottom a {
-            color: var(--gray-600);
+            color: var(--text-muted);
             text-decoration: none;
             transition: var(--transition);
         }
 
-        .footer-bottom a:hover { color: var(--gray-400); }
+        .footer-bottom a:hover { color: var(--text-secondary); }
 
-        .network-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            color: var(--gray-600);
-            letter-spacing: 0.05em;
-        }
-
-        .network-badge a {
-            color: var(--navy-light);
+        .copy-text {
+            color: var(--text-muted);
+            user-select: all;
+            cursor: text;
         }
 
         /* Reveal Animation */
@@ -888,10 +883,6 @@
                 text-align: center;
             }
             
-            .footer-contact-item {
-                justify-content: center;
-            }
-            
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
@@ -903,37 +894,11 @@
     <!-- Navigation -->
     <nav class="nav">
         <a href="/" class="nav-logo">
-            <svg viewBox="0 0 520 80" xmlns="http://www.w3.org/2000/svg">
-              <!-- Golden circle -->
-              <circle cx="40" cy="40" r="38" fill="#F5B84C"/>
-              
-              <!-- Teleprompter stand -->
-              <rect x="28" y="65" width="24" height="5" rx="1" fill="#1a1a1a"/>
-              <rect x="32" y="60" width="16" height="6" fill="#1a1a1a"/>
-              
-              <!-- Teleprompter case bottom -->
-              <path d="M15 60 L65 60 L65 32 L15 32 Z" fill="#2a2a2a"/>
-              
-              <!-- Teleprompter lid (open) -->
-              <path d="M15 32 L65 32 L60 12 L20 12 Z" fill="#1a1a1a"/>
-              
-              <!-- Screen -->
-              <rect x="19" y="35" width="42" height="23" rx="1" fill="#5a5a5a"/>
-              
-              <!-- Pennsylvania state shape (rectangular) -->
-              <path d="M23 38 L57 38 L57 40 L55 42 L55 54 L25 54 L25 42 L23 40 Z" fill="#707070"/>
-              
-              <!-- Text lines on state -->
-              <line x1="27" y1="43" x2="53" y2="43" stroke="#d0d0d0" stroke-width="1.5"/>
-              <line x1="27" y1="47" x2="51" y2="47" stroke="#d0d0d0" stroke-width="1.5"/>
-              <line x1="27" y1="51" x2="47" y2="51" stroke="#d0d0d0" stroke-width="1.5"/>
-              
-              <!-- Pennsylvania Teleprompter text -->
-              <text x="90" y="38" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">Pennsylvania Teleprompter</text>
-              
-              <!-- Tagline -->
-              <text x="90" y="58" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.5" fill="#A89C96">Powering Outstanding Performances</text>
-            </svg>
+            <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="12" rx="1"/></svg></div>
+            <div class="nav-logo-text">
+                <span class="nav-logo-name">Pennsylvania Teleprompter</span>
+                <span class="nav-logo-tagline">Powering Outstanding Performances</span>
+            </div>
         </a>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
@@ -1210,47 +1175,22 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <a href="/" class="nav-logo">
-                    <svg viewBox="0 0 520 80" xmlns="http://www.w3.org/2000/svg">
-                      <!-- Golden circle -->
-                      <circle cx="40" cy="40" r="38" fill="#F5B84C"/>
-                      
-                      <!-- Teleprompter stand -->
-                      <rect x="28" y="65" width="24" height="5" rx="1" fill="#1a1a1a"/>
-                      <rect x="32" y="60" width="16" height="6" fill="#1a1a1a"/>
-                      
-                      <!-- Teleprompter case bottom -->
-                      <path d="M15 60 L65 60 L65 32 L15 32 Z" fill="#2a2a2a"/>
-                      
-                      <!-- Teleprompter lid (open) -->
-                      <path d="M15 32 L65 32 L60 12 L20 12 Z" fill="#1a1a1a"/>
-                      
-                      <!-- Screen -->
-                      <rect x="19" y="35" width="42" height="23" rx="1" fill="#5a5a5a"/>
-                      
-                      <!-- Pennsylvania state shape (rectangular) -->
-                      <path d="M23 38 L57 38 L57 40 L55 42 L55 54 L25 54 L25 42 L23 40 Z" fill="#707070"/>
-                      
-                      <!-- Text lines on state -->
-                      <line x1="27" y1="43" x2="53" y2="43" stroke="#d0d0d0" stroke-width="1.5"/>
-                      <line x1="27" y1="47" x2="51" y2="47" stroke="#d0d0d0" stroke-width="1.5"/>
-                      <line x1="27" y1="51" x2="47" y2="51" stroke="#d0d0d0" stroke-width="1.5"/>
-                      
-                      <!-- Pennsylvania Teleprompter text -->
-                      <text x="90" y="38" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">Pennsylvania Teleprompter</text>
-                      
-                      <!-- Tagline -->
-                      <text x="90" y="58" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.5" fill="#A89C96">Powering Outstanding Performances</text>
-                    </svg>
+                    <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="12" rx="1"/></svg></div>
+                    <div class="nav-logo-text">
+                        <span class="nav-logo-name">Pennsylvania Teleprompter</span>
+                        <span class="nav-logo-tagline">Powering Outstanding Performances</span>
+                    </div>
                 </a>
                 <p>Professional teleprompting services for productions of every scale. Based in Pennsylvania, serving the Northeast and beyond.</p>
             </div>
             <div class="footer-column">
-                <h4>Services</h4>
+                <h4>Network</h4>
                 <ul>
-                    <li><a href="#services">Live Events</a></li>
-                    <li><a href="#services">Video Production</a></li>
-                    <li><a href="#services">Executive Communications</a></li>
-                    <li><a href="#services">Virtual Events</a></li>
+                    <li><a href="https://floridateleprompter.com">Florida Teleprompter</a></li>
+                    <li><a href="https://ohioteleprompter.com">Ohio Teleprompter</a></li>
+                    <li><a href="https://georgiateleprompter.com">Georgia Teleprompter</a></li>
+                    <li><a href="https://newyorkteleprompter.com">New York Teleprompter</a></li>
+                    <li><a href="https://nationalteleprompter.com">National Teleprompter</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -1264,26 +1204,16 @@
             </div>
             <div class="footer-column">
                 <h4>Contact</h4>
-                <div class="footer-contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                    </svg>
-                    <a href="tel:+12156551234">(215) 655-1234</a>
-                </div>
-                <div class="footer-contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="4" width="20" height="16" rx="2"/>
-                        <path d="M22 6l-10 7L2 6"/>
-                    </svg>
-                    <a href="mailto:info@pennsylvaniateleprompter.com">info@pennsylvaniateleprompter.com</a>
-                </div>
+                <ul>
+                    <li><a href="tel:7276232652">727-623-2652</a></li>
+                    <li><span class="copy-text">jason@floridateleprompter.com</span></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 Pennsylvania Teleprompter LLC. All rights reserved.</p>
-            <div class="network-badge">
-                Part of the <a href="https://nationalteleprompter.com">National Teleprompter</a> Network
-            </div>
+            <p>A subsidiary of <a href="https://cladutacorp.com">Claduta Corp</a> · <span class="copy-text">info@cladutacorp.com</span></p>
+            <p>Part of the <a href="https://nationalteleprompter.com">National Teleprompter</a> Network</p>
         </div>
     </footer>
 
