@@ -11,6 +11,7 @@
     <meta property="og:description" content="Pennsylvania's premier teleprompter services for live events, broadcasts, and video production.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pennsylvaniateleprompter.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
@@ -643,6 +644,141 @@
             font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: 0.25rem;
+        }
+
+        /* SCRIPT FORMATTER TOOL */
+        .tool-section {
+            padding: 80px 20px;
+            background: var(--bg-deep);
+        }
+
+        .tool-card {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 40px;
+        }
+
+        .tool-card::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            margin: -40px -40px 30px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px;
+            background: rgba(245, 184, 76, 0.1);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gold);
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border-light);
+            border-radius: 6px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--gold);
+            background: rgba(245, 184, 76, 0.05);
+        }
+
+        .upload-zone input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            stroke: var(--text-muted);
+        }
+
+        .upload-zone:hover .upload-icon {
+            stroke: var(--gold);
+        }
+
+        .upload-title {
+            font-family: var(--font-display);
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-bright);
+        }
+
+        .upload-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .tool-output {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tool-output.active {
+            display: block;
+        }
+
+        .output-preview {
+            background: var(--bg-void);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 16px;
+            max-height: 180px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+            margin-bottom: 16px;
+        }
+
+        .tool-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
         }
 
         /* Gallery */
@@ -1312,6 +1448,43 @@
         </div>
     </section>
 
+    <!-- Script Formatter Tool -->
+    <section class="tool-section" id="tool">
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                <h2 class="tool-title">Script Formatter</h2>
+                <p class="tool-desc">Upload your script (TXT or DOCX) and download a teleprompter-ready RTF file with proper line breaks after each sentence.</p>
+            </div>
+            
+            <div class="upload-zone" id="uploadZone">
+                <input type="file" id="scriptFile" accept=".txt,.docx">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <p class="upload-title">Drop Script Here</p>
+                <p class="upload-hint">TXT or DOCX files</p>
+            </div>
+            
+            <div class="tool-output" id="toolOutput">
+                <div class="output-preview" id="outputPreview"></div>
+                <div class="tool-actions">
+                    <button class="btn btn-primary" id="downloadBtn">Download RTF</button>
+                    <button class="btn btn-secondary" id="resetBtn">Format Another</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Clients Marquee -->
     <section class="clients">
         <div class="section-header reveal">
@@ -1675,6 +1848,115 @@
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
             }
+        });
+
+        // Script Formatter Tool
+        const uploadZone = document.getElementById('uploadZone');
+        const scriptFile = document.getElementById('scriptFile');
+        const toolOutput = document.getElementById('toolOutput');
+        const outputPreview = document.getElementById('outputPreview');
+        let formattedText = '';
+
+        // Drag and drop handlers
+        uploadZone?.addEventListener('dragover', e => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone?.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone?.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) {
+                processFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        // File input change handler
+        scriptFile?.addEventListener('change', e => {
+            if (e.target.files[0]) {
+                processFile(e.target.files[0]);
+            }
+        });
+
+        // Process uploaded file
+        function processFile(file) {
+            const ext = file.name.split('.').pop().toLowerCase();
+            
+            if (ext === 'docx') {
+                // Handle DOCX files with mammoth.js
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    mammoth.extractRawText({arrayBuffer: e.target.result})
+                        .then(result => {
+                            formattedText = formatScript(result.value);
+                            showOutput();
+                        })
+                        .catch(err => alert('Error reading DOCX: ' + err));
+                };
+                reader.readAsArrayBuffer(file);
+            } else {
+                // Handle TXT files
+                const reader = new FileReader();
+                reader.onload = e => {
+                    formattedText = formatScript(e.target.result);
+                    showOutput();
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Format script with line breaks after sentences
+        function formatScript(text) {
+            return text
+                .replace(/\. /g, '.\n\n')
+                .replace(/\? /g, '?\n\n')
+                .replace(/\! /g, '!\n\n')
+                .replace(/Mr\.\n\n/g, 'Mr. ')
+                .replace(/Mrs\.\n\n/g, 'Mrs. ')
+                .replace(/Ms\.\n\n/g, 'Ms. ')
+                .replace(/Dr\.\n\n/g, 'Dr. ')
+                .replace(/Jr\.\n\n/g, 'Jr. ')
+                .replace(/Sr\.\n\n/g, 'Sr. ')
+                .replace(/U\.S\.\n\n/g, 'U.S. ')
+                .replace(/a\.m\.\n\n/g, 'a.m. ')
+                .replace(/p\.m\.\n\n/g, 'p.m. ')
+                .trim();
+        }
+
+        // Show the output preview
+        function showOutput() {
+            outputPreview.textContent = formattedText;
+            toolOutput.classList.add('active');
+            uploadZone.style.display = 'none';
+        }
+
+        // Download RTF button
+        document.getElementById('downloadBtn')?.addEventListener('click', () => {
+            const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}\\f0\\fs96 ' + 
+                formattedText
+                    .replace(/\\/g, '\\\\')
+                    .replace(/\{/g, '\\{')
+                    .replace(/\}/g, '\\}')
+                    .replace(/\n/g, '\\par\\par ') + 
+                '}';
+            
+            const blob = new Blob([rtf], {type: 'application/rtf'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'teleprompter-script.rtf';
+            a.click();
+        });
+
+        // Reset button
+        document.getElementById('resetBtn')?.addEventListener('click', () => {
+            toolOutput.classList.remove('active');
+            uploadZone.style.display = 'block';
+            scriptFile.value = '';
+            formattedText = '';
         });
     </script>
 </body>
