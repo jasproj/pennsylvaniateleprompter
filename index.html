@@ -392,61 +392,51 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(0, 45, 114, 0.2);
-            padding: 3rem;
-            transition: var(--transition);
-            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
             transition: var(--transition);
         }
 
         .service-card:hover {
-            background: rgba(0, 45, 114, 0.1);
             transform: translateY(-4px);
-            border-color: rgba(0, 45, 114, 0.4);
+            border-color: var(--border-light);
         }
 
-        .service-card:hover::before { opacity: 1; }
+        .service-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
 
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
+        .service-image.crop-bottom {
+            object-position: center top;
+        }
+
+        .service-content {
+            padding: 1.5rem;
         }
 
         .service-title {
             font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-bright);
             margin-bottom: 0.5rem;
         }
 
-        .service-subtitle {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
+        .service-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .service-description {
@@ -563,6 +553,72 @@
             font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: 0.25rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 6rem 2rem;
+            background: var(--bg-deep);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Coverage Map Section */
@@ -878,6 +934,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -969,50 +1029,50 @@
     <section id="services" class="section services">
         <div class="section-header reveal">
             <p class="section-label">What We Do</p>
-            <h2 class="section-title">Professional Teleprompting for Every Production</h2>
+            <h2 class="section-title">Professional Teleprompting Services</h2>
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
-                <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="4" y="8" width="40" height="28" rx="2"/>
-                    <path d="M4 14h40"/>
-                    <circle cx="24" cy="26" r="6"/>
-                    <path d="M22 26l3 2v-4l-3 2z" fill="currentColor"/>
-                    <path d="M16 40h16"/>
-                    <path d="M20 36v4M28 36v4"/>
-                </svg>
-                <h3 class="service-title">Live Events</h3>
-                <p class="service-subtitle">Conventions • Political Rallies • Sports • Concerts</p>
-                <p class="service-description">
-                    Thousands of shows. Zero do-overs. Our operators stay in sync with the room, adjust in real time, and keep talent composed when the spotlight shifts. From conventions to concerts, we make live feel effortless.
-                </p>
+                <img src="img-stage.jpg" alt="Speaker on stage with teleprompter at live event" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Live Events</h3>
+                    <p class="service-description">Conferences, rallies, concerts, and galas. Our operators stay in sync with the room and keep talent composed.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="6" y="10" width="28" height="20" rx="2"/>
-                    <circle cx="20" cy="20" r="5"/>
-                    <path d="M36 14l8-4v28l-8-4V14z"/>
-                    <path d="M10 36h12M10 40h8"/>
-                </svg>
-                <h3 class="service-title">Video Production</h3>
-                <p class="service-subtitle">Corporate • Commercials • Social Media • Infomercials</p>
-                <p class="service-description">
-                    We do more than roll text. On every scripted shoot, we work with producers and talent to shape flow, rehearse delivery, and keep takes sharp and natural. From major productions to brand campaigns, we bring precision to every set.
-                </p>
+                <img src="img-gala.jpg" alt="Corporate gala event with teleprompter setup" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Corporate</h3>
+                    <p class="service-description">Keynotes, board meetings, investor days. Discreet teleprompting for high-stakes presentations.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="8" y="6" width="32" height="24" rx="2"/>
-                    <path d="M8 12h32"/>
-                    <circle cx="24" cy="22" r="4"/>
-                    <path d="M24 34v8M16 42h16"/>
-                    <path d="M4 18l4-2v12l-4-2V18zM44 18l-4-2v12l4-2V18z"/>
-                </svg>
-                <h3 class="service-title">Executive Communications</h3>
-                <p class="service-subtitle">Keynotes • Board Meetings • Investor Calls • Training</p>
-                <p class="service-description">
-                    When leadership speaks, every word matters. We provide discreet, professional teleprompting for high-stakes presentations, ensuring executives deliver with confidence and precision.
-                </p>
+                <img src="img-montel.jpg" alt="Video production shoot with teleprompter" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Video Production</h3>
+                    <p class="service-description">Commercials, corporate videos, social media. We shape flow and keep takes sharp.</p>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <img src="img-rig.jpg" alt="Camera rig with mounted teleprompter" class="service-image crop-bottom" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Broadcast</h3>
+                    <p class="service-description">News desks, talk shows, live TV. Precision teleprompting that keeps talent confident.</p>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <img src="img-ballroom.jpg" alt="Red-lit ballroom event setup" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Sports & Entertainment</h3>
+                    <p class="service-description">Award shows, halftime, sports broadcasts. Zero do-overs, total precision.</p>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <img src="img-outdoor.jpg" alt="Outdoor waterfront production" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">Political & Non-Profit</h3>
+                    <p class="service-description">Campaign events, fundraisers, advocacy. Every word matters.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1148,6 +1208,24 @@
         </div>
     </section>
 
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="section-header reveal">
+            <p class="section-label">Our Work</p>
+            <h2 class="section-title">Production Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="img-stage.jpg" alt="Live event" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-gala.jpg" alt="Corporate gala" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-rig.jpg" alt="Camera rig" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-montel.jpg" alt="Video production" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-ballroom.jpg" alt="Ballroom event" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-outdoor.jpg" alt="Outdoor shoot" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-prompter.jpg" alt="Teleprompter" loading="lazy"></div>
+            <div class="gallery-item"><img src="img-station.jpg" alt="Workstation" loading="lazy"></div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section id="contact" class="cta">
         <div class="cta-content reveal">
@@ -1217,6 +1295,12 @@
         </div>
     </footer>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="Gallery image">
+    </div>
+
     <script>
         // Navigation scroll effect
         const nav = document.querySelector('.nav');
@@ -1264,6 +1348,33 @@
         }, { threshold: 0.1, rootMargin: '-50px' });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox?.querySelector('img');
+        const lightboxClose = lightbox?.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightboxClose?.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        lightbox?.addEventListener('click', e => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>
