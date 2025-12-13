@@ -260,62 +260,6 @@
             z-index: 2;
         }
 
-        /* Side Prompter Monitors */
-        .prompter-monitors {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .monitor {
-            position: absolute;
-            bottom: 20%;
-            width: 60px;
-            height: 45px;
-            background: linear-gradient(135deg, #1a1a1f 0%, #0d0d0f 100%);
-            border: 2px solid rgba(245, 184, 76, 0.3);
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .monitor-left { left: 10%; }
-        .monitor-right { right: 10%; }
-
-        .monitor-screen {
-            width: 90%;
-            height: 80%;
-            background: rgba(245, 184, 76, 0.05);
-            border-radius: 2px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .monitor-lines {
-            position: absolute;
-            width: 100%;
-            animation: monitorScroll 4s linear infinite;
-        }
-
-        .monitor-lines span {
-            display: block;
-            height: 4px;
-            margin: 6px 4px;
-            background: rgba(245, 184, 76, 0.3);
-            border-radius: 2px;
-        }
-
-        .monitor-lines span:nth-child(odd) { width: 85%; }
-        .monitor-lines span:nth-child(even) { width: 70%; }
-
-        @keyframes monitorScroll {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-
         /* Subtle corner accents */
         .hero::before {
             content: '';
@@ -1338,26 +1282,6 @@
         
         <!-- Reading Zone Highlight -->
         <div class="reading-zone"></div>
-        
-        <!-- Side Prompter Monitors -->
-        <div class="prompter-monitors">
-            <div class="monitor monitor-left">
-                <div class="monitor-screen">
-                    <div class="monitor-lines">
-                        <span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="monitor monitor-right">
-                <div class="monitor-screen">
-                    <div class="monitor-lines">
-                        <span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <div class="hero-content">
             <p class="hero-tagline">Pennsylvania's Teleprompting Experts</p>
