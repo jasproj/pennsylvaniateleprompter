@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Pittsburgh Teleprompter Services | Steel City Corporate & Tech Hub"
+description: "Professional teleprompter services for Pittsburgh's corporate events, tech sector, and business communications."
+---
 # Pittsburgh Teleprompter Services | Steel City Corporate & Tech Hub
 
 Professional teleprompter services for Pittsburgh's corporate events, tech sector, and business communications.
