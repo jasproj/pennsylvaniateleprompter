@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Philadelphia Teleprompter Services | Northeast Corporate & Media Hub"
+description: "Professional teleprompter services for Philadelphia's corporate events, broadcast television, conventions, and business communications. Philadelphia's..."
+---
 # Philadelphia Teleprompter Services | Northeast Corporate & Media Hub
 
 Professional teleprompter services for Philadelphia's corporate events, broadcast television, conventions, and business communications. Philadelphia's active business community and media market demand professional event infrastructure.
