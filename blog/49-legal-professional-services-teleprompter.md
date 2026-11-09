@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Legal & Professional Services Teleprompter Support"
 description: "Law firms, accounting firms, consulting companies, professional services firms — professional events require precision and credibility."
 ---

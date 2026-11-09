@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Teleprompter Tips for Nervous Speakers: Build Confidence & Deliver Powerfully"
 description: "You have an important speech coming up. You're not a professional public speaker. The thought of standing in front of 100+ people and delivering..."
 ---

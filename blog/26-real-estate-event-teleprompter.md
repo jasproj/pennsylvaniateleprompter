@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Real Estate Events & Property Launch Teleprompter Services"
 description: "Real estate professionals host events constantly — property launches, investor presentations, agent training, client forums. Professional teleprompter..."
 ---
