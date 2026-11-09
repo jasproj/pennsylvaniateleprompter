@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Manufacturing & Industrial Sector Teleprompter Services"
 description: "Manufacturing companies, industrial sectors, B2B industries — manufacturing and industrial events require professional, technical communication..."
 ---

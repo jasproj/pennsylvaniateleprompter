@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Government & Institutional Teleprompter Services"
 description: "Government agencies, public officials, institutional communications — government events require professional, secure teleprompter infrastructure."
 ---

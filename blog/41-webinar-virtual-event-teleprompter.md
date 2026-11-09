@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Webinar & Virtual Event Teleprompter Services"
 description: "Webinars, virtual conferences, online summits — professional teleprompter support ensures confident, polished delivery for online audiences."
 ---

@@ -1,5 +1,6 @@
 ---
 layout: default
+robots: "noindex, follow"
 title: "Corporate Training & Development Teleprompter Services"
 description: "Corporate training, employee onboarding, skill development programs — professional teleprompter support ensures training effectiveness and consistency."
 ---
